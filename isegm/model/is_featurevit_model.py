@@ -198,11 +198,7 @@ class FeatureVitModel(ISModel):
 
         if self.extractor_type[:6] == "dinov2":
             self.feature_extractor = DinoExtractor(extractor_type)
-        elif self.extractor_type[:3] == "mae":
-            self.feature_extractor = MAEExtractor(
-                extractor_type=extractor_type,
-                backbone_weight_path=backbone_weight_path
-            )
+
         if self.use_conv_stack:
             self.backbone_mix = SimpleModulationStack(**backbone_params)
         else: # Use a stack of transformer encoder blocks
@@ -221,7 +217,6 @@ class FeatureVitModel(ISModel):
 
     def backbone_forward(self, image, coord_features=None):
         h, w = image.shape[-2], image.shape[-1]
-        coord_features = self.patch_embed_coords(coord_features)
 
         if self.trained_extractor:
             image_features = self.feature_extractor(image)
@@ -242,6 +237,8 @@ class FeatureVitModel(ISModel):
         grid_size = h // h_patch, w // w_patch
 
         start_time = time.time()
+
+        coord_features = self.patch_embed_coords(coord_features)
         if self.use_conv_stack:
             backbone_features = self.backbone_mix(image_features, coord_features, grid_size)
         else: # Use a transformer encoder stack

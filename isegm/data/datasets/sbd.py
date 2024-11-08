@@ -12,11 +12,9 @@ from isegm.data.sample import DSample
 
 
 class SBDDataset(ISDataset):
-    def __init__(self, dataset_path, split='train', depth_type="depth_anything", buggy_mask_thresh=0.08, **kwargs):
+    def __init__(self, dataset_path, split='train', buggy_mask_thresh=0.08, **kwargs):
         super(SBDDataset, self).__init__(**kwargs)
         assert split in {'train', 'val'}
-        assert depth_type in ["depth_anything", "leres"]
-        self.depth_type = depth_type
 
         self.dataset_path = Path(dataset_path)
         self.dataset_split = split
@@ -25,12 +23,6 @@ class SBDDataset(ISDataset):
         self._buggy_objects = dict()
         self._buggy_mask_thresh = buggy_mask_thresh
 
-        if self.depth_type == "depth_anything":
-            self.depth_path = self.dataset_path / "depth_anything_depth/"
-        elif self.depth_type == "leres":
-            self.depth_path = self.dataset_path / "leres_depth/"
-        else:
-            raise NotImplementedError
 
 
         with open(self.dataset_path / f'{split}.txt', 'r') as f:
@@ -47,17 +39,7 @@ class SBDDataset(ISDataset):
         instances_mask = self.remove_buggy_masks(index, instances_mask)
         instances_ids, _ = get_labels_with_sizes(instances_mask)
 
-        if self.depth_type == "depth_anything":
-            depth_map = np.array(Image.open(self.depth_path / f'{image_name}_depth.png')) / 255.0 # [H, W, 3] | np.int | I=[0,255]
-        elif self.depth_type == "leres":
-            depth_map = np.array(Image.open(self.depth_path / f'{image_name}-depth_raw.png')) / 60000.0
-
-        if len(depth_map.shape) == 3:
-            depth_map = depth_map.mean(axis=2)
-
-        depth_map = depth_map.astype(np.float32)
-
-        return DSample(image, instances_mask, objects_ids=instances_ids, sample_id=index, depth_map=depth_map)
+        return DSample(image, instances_mask, objects_ids=instances_ids, sample_id=index)
 
     def remove_buggy_masks(self, index, instances_mask):
         if self._buggy_mask_thresh > 0.0:
@@ -82,23 +64,14 @@ class SBDDataset(ISDataset):
 
 
 class SBDEvaluationDataset(ISDataset):
-    def __init__(self, dataset_path, split='val', depth_type="depth_anything", **kwargs):
+    def __init__(self, dataset_path, split='val', **kwargs):
         super(SBDEvaluationDataset, self).__init__(**kwargs)
         assert split in {'train', 'val'}
-        assert depth_type in ["depth_anything", "leres"]
-        self.depth_type = depth_type
 
         self.dataset_path = Path(dataset_path)
         self.dataset_split = split
         self._images_path = self.dataset_path / 'img'
         self._insts_path = self.dataset_path / 'inst'
-
-        if self.depth_type == "depth_anything":
-            self.depth_path = self.dataset_path / "depth_anything_depth/"
-        elif self.depth_type == "leres":
-            self.depth_path = self.dataset_path / "leres_depth/"
-        else:
-            raise NotImplementedError
 
         with open(self.dataset_path / f'{split}.txt', 'r') as f:
             self.dataset_samples = [x.strip() for x in f.readlines()]
@@ -116,16 +89,7 @@ class SBDEvaluationDataset(ISDataset):
         instances_mask[instances_mask != instance_id] = 0
         instances_mask[instances_mask > 0] = 1
 
-        if self.depth_type == "depth_anything":
-            depth_map = np.array(Image.open(self.depth_path / f'{image_name}_depth.png')) / 255.0 # [H, W, 3] | np.int | I=[0,255]
-        elif self.depth_type == "leres":
-            depth_map = np.array(Image.open(self.depth_path / f'{image_name}-depth_raw.png')) / 60000.0
-
-        if len(depth_map.shape) == 3:
-            depth_map = depth_map.mean(axis=2) # [H, W]
-        depth_map = depth_map.astype(np.float32)
-
-        return DSample(image, instances_mask, objects_ids=[1], sample_id=index, depth_map=depth_map)
+        return DSample(image, instances_mask, objects_ids=[1], sample_id=index)
 
     def get_sbd_images_and_ids_list(self):
         pkl_path = self.dataset_path / f'{self.dataset_split}_images_and_ids_list.pkl'
