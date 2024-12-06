@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="mmc-user@mmc094.informatik.uni-augsburg.de:6040" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="mmc-user@mmc094.informatik.uni-augsburg.de:6040" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="grossmutter">
         <serverdata>
@@ -31,5 +31,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

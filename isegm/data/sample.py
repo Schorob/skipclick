@@ -62,7 +62,7 @@ class DSample:
     def reset_augmentation(self):
         if not self._augmented:
             return
-        orig_image, orig_masks, orig_objects, orig_depth_map = self._original_data
+        orig_image, orig_masks, orig_objects = self._original_data
         self.image = orig_image
         self._encoded_masks = orig_masks
         self._objects = deepcopy(orig_objects)

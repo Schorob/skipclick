@@ -65,7 +65,4 @@ class CocoLvisDataset(ISDataset):
                 layers[:, :, layer_indx][layers[:, :, layer_indx] == mask_id] = 0
 
 
-        # TODO: For now we just have a dummy depth map made up of zeroes
-        depth_map = np.zeros(shape=(image.shape[0], image.shape[1]), dtype=np.float32)
-
-        return DSample(image, layers, objects=instances_info, depth_map=depth_map)
+        return DSample(image, layers, objects=instances_info)
