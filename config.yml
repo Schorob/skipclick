@@ -12,6 +12,7 @@ OAIZIB_PATH: "/data/raid_ssd/schoerob/OAI-ZIB"
 OAI_PATH: "/playpen-raid2/qinliu/data/OAI"
 HARD_PATH: "/playpen-raid2/qinliu/data/HARD"
 SHSEG_PATH: "/data/raid_ssd/schoerob/SHSeg"
+COCO_PATH: "/data/raid_ssd/schoerob/mscoco"
 
 # Evaluations datasets that have been used in the SAM Paper
 PPDLS_PATH: "/data/raid_ssd/schoerob/Plant_Phenotyping_Datasets/Plant_Phenotyping_Datasets"
@@ -28,7 +29,7 @@ WSESEG_PATH: "/data/raid_ssd/schoerob/sports_tools"
 # Train datasets
 SBD_PATH: "/data/raid_ssd/schoerob/hq_depthseg/sbd"
 HQSEG_PATH: "/data/raid_ssd/schoerob/hqseg44k"
-COCO_PATH: "/playpen-raid2/qinliu/data/COCO_2017"
+#COCO_PATH: "/playpen-raid2/qinliu/data/COCO_2017"
 LVIS_v1_PATH: "/data/raid_ssd/schoerob/cocolvis"
 OPENIMAGES_PATH: "./datasets/OpenImages"
 PASCALVOC_PATH: "/playpen-raid2/qinliu/data/PascalVOC"

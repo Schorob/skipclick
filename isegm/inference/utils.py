@@ -5,7 +5,7 @@ import numpy as np
 
 from isegm.data.datasets import GrabCutDataset, BerkeleyDataset, DavisDataset, \
     SBDEvaluationDataset, PascalVocDataset, BraTSDataset, ssTEMDataset, OAIZIBDataset, HARDDataset, \
-    HQSeg44kDataset, Lvis_v1_Dataset, WSESeg, SHSeg
+    HQSeg44kDataset, Lvis_v1_Dataset, WSESeg, SHSeg, CocoDataset, CocoStuffSingle
 from isegm.utils.serialization import load_model
 
 
@@ -74,6 +74,8 @@ def get_dataset(dataset_name, cfg):
         dataset = HQSeg44kDataset(cfg.HQSEG_PATH, split='val')
     elif dataset_name == "LVIS":
         dataset = Lvis_v1_Dataset(cfg.LVIS_v1_PATH, split="val", subsample=True)
+    elif dataset_name == "CocoStuffSingleVal":
+        dataset = CocoStuffSingle(cfg.COCO_PATH, split="val")
 
     ######################### WSESeg Classes ##################################
     elif dataset_name == "WSESeg_flickr_bobsleighs":
@@ -125,7 +127,7 @@ def compute_noc_metric(all_ious, iou_thrs, max_clicks=20):
     over_max_list = []
     for iou_thr in iou_thrs:
         scores_arr = np.array([_get_noc(iou_arr, iou_thr)
-                               for iou_arr in all_ious], dtype=np.int)
+                               for iou_arr in all_ious], dtype=np.int64)
 
         score = scores_arr.mean()
         score_std = scores_arr.std()

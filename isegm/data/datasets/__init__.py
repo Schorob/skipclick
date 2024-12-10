@@ -19,3 +19,4 @@ from .hard import HARDDataset
 from .hqseg44k import HQSeg44kDataset
 from .wseseg import WSESeg
 from .shseg import SHSeg
+from .cocostuff import CocoStuffSingle

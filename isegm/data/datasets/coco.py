@@ -18,8 +18,8 @@ class CocoDataset(ISDataset):
 
     def load_samples(self):
         annotation_path = self.dataset_path / 'annotations' / f'panoptic_{self.split}.json'
-        self.labels_path = self.dataset_path / 'annotations' / f'panoptic_{self.split}'
-        self.images_path = self.dataset_path / self.split
+        self.labels_path = self.dataset_path / 'annotations' / f'panoptic_{self.split}2017'
+        self.images_path = self.dataset_path / (self.split + "2017")
 
         with open(annotation_path, 'r') as f:
             annotation = json.load(f)
