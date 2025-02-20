@@ -28,7 +28,7 @@ class CocoStuffSingle(ISDataset):
 
         self.dataset_samples = list(zip(image_path_list, stuff_path_list))
         # TODO: Shortened dataset
-        self.dataset_samples = self.dataset_samples[:200]
+        self.dataset_samples = self.dataset_samples[:500]
 
     def get_sample(self, index) -> DSample:
         img_path, mask_path = self.dataset_samples[index]
