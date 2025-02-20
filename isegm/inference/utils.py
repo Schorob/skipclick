@@ -47,6 +47,7 @@ def load_single_is_model(state_dict, device, eval_ritm, **kwargs):
     return model
 
 
+
 def get_dataset(dataset_name, cfg):
     if dataset_name == 'GrabCut':
         dataset = GrabCutDataset(cfg.GRABCUT_PATH)
