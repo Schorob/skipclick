@@ -78,3 +78,19 @@ Please also cite their papers if you make use of this repository:
        year={2020}
     }
 
+
+## Weights
+You can download the weights from these links: 
+
+| **Configuration** | **GrabCut NoC@90** | **Avg. WSESeg NoC@90** | **Model File** | **Link to Weights** |
+|--------|--------|--------|--------|--------|
+| Baseline | 1.74 | 12.031 | [Link](https://github.com/Schorob/skipclick/blob/main/models/iter_mask/featurevit_base448_cocolvis_itermask_unfrozen.py) | [Link](https://mediastore.rz.uni-augsburg.de/get/Gf3Aza1fSE/) |
+| + Frozen Backbone | 1.72 | 11.951 | [Link](https://github.com/Schorob/skipclick/blob/main/models/iter_mask/featurevit_base448_cocolvis_itermask.py) | [Link](https://mediastore.rz.uni-augsburg.de/get/2JipuNEGYO/) |
+| + Intermediate Features | 1.40 | 10.344 | [Link](https://github.com/Schorob/skipclick/blob/main/models/iter_mask/featurevit_base448_cocolvis_itermask_intermediate.py) | [Link](https://mediastore.rz.uni-augsburg.de/get/aOa4lakFcM/) |
+| + Skip Connections | 1.44 | 9.163 | [Link](https://github.com/Schorob/skipclick/blob/main/models/iter_mask/featurevit_base448_cocolvis_itermask_intermediate_skip.py) | [Link](https://mediastore.rz.uni-augsburg.de/get/MQjMyFYnZ7/) |
+
+In order to run an evaluation of any of the pretrained models, you will have to adapt the content of `config.yml`, as this file contains the paths to the datasets. 
+The `scripts/evaluation.py` can be run by: 
+``` 
+python3 scripts/evaluate_model.py NoBRS --eval-mode=cvpr --gpus=[GPU-Number] --eval-fvit --suppress-zoom --checkpoint=[/path/to/the/checkpoint.pth] --datasets=[DatasetName]
+```
