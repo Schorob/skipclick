@@ -1,6 +1,6 @@
 # SHSeg
 
-This dataset contains masks for athletes that are currently skiing. I has been published alongside the following paper: 
+This dataset contains masks for athletes that are currently skiing. It has been published alongside the following paper: 
 
     @misc{schön2025skipclickcombiningquickresponses,
         title={SkipClick: Combining Quick Responses and Low-Level Features for Interactive Segmentation in Winter Sports Contexts},
@@ -41,7 +41,7 @@ The dataset on its own only contains masks. The corresponding images are a subse
 
  
 
-If you their images, please also cite their paper. You can download the images from [here](https://machinelearning.uniud.it/datasets/skitb/). 
+If you use their images, please also cite their paper. You can download the images from [here](https://machinelearning.uniud.it/datasets/skitb/). 
 
  
 
@@ -49,7 +49,7 @@ The dataset itself can be downloaded from  [here](https://myweb.rz.uni-augsburg.
 
 # SkipClick
 ## Acknowledgements
-The code this repository is based on [SimpleClick](https://github.com/uncbiag/SimpleClick) and [RITM](https://github.com/SamsungLabs/ritm_interactive_segmentation). 
+The code in this repository is based on [SimpleClick](https://github.com/uncbiag/SimpleClick) and [RITM](https://github.com/SamsungLabs/ritm_interactive_segmentation). 
 Please also cite their papers if you make use of this repository: 
 
     @InProceedings{Liu_2023_ICCV,
