@@ -5,7 +5,7 @@ import numpy as np
 
 from isegm.data.datasets import GrabCutDataset, BerkeleyDataset, DavisDataset, \
     SBDEvaluationDataset, PascalVocDataset, BraTSDataset, ssTEMDataset, OAIZIBDataset, HARDDataset, \
-    HQSeg44kDataset, Lvis_v1_Dataset, WSESeg, SHSeg, CocoDataset, CocoStuffSingle
+    HQSeg44kDataset, Lvis_v1_Dataset, WSESeg, SHSeg, CocoDataset
 from isegm.utils.serialization import load_model
 
 
@@ -21,7 +21,7 @@ def get_time_metrics(all_ious, elapsed_time):
 
 def load_is_model(checkpoint, device, eval_ritm, **kwargs):
     if isinstance(checkpoint, (str, Path)):
-        state_dict = torch.load(checkpoint, map_location='cpu')
+        state_dict = torch.load(checkpoint, map_location='cpu', weights_only=False)
         # print("Load pre-trained checkpoint from: %s" % checkpoint)
     else:
         state_dict = checkpoint
@@ -75,8 +75,6 @@ def get_dataset(dataset_name, cfg):
         dataset = HQSeg44kDataset(cfg.HQSEG_PATH, split='val')
     elif dataset_name == "LVIS":
         dataset = Lvis_v1_Dataset(cfg.LVIS_v1_PATH, split="val", subsample=True)
-    elif dataset_name == "CocoStuffSingleVal":
-        dataset = CocoStuffSingle(cfg.COCO_PATH, split="val")
 
     ######################### WSESeg Classes ##################################
     elif dataset_name == "WSESeg_flickr_bobsleighs":

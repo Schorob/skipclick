@@ -9,9 +9,9 @@ import torch
 import time
 from functools import partial
 
-class DinoExtractor(nn.Module):
+class DinoV2Extractor(nn.Module):
     def __init__(self, extractor_type, extraction_blocks=[2, 5, 8, 11]):
-        super(DinoExtractor, self).__init__()
+        super(DinoV2Extractor, self).__init__()
         self.extractor_type = extractor_type
         self.extraction_blocks = extraction_blocks
         self.dinov2 = torch.hub.load('facebookresearch/dinov2', extractor_type)
@@ -42,6 +42,18 @@ class DinoExtractor(nn.Module):
         self.feature_map_dict = dict()
 
         return out_features
+
+class DinoV3Extractor(nn.Module):
+    def __init__(self, extractor_type, repo_path, weight_path, extraction_blocks=[2, 5, 8, 11]):
+        super(DinoV3Extractor, self).__init__()
+        self.extractor_type = extractor_type
+        self.extraction_blocks = extraction_blocks
+        self.dinov3 = torch.hub.load(repo_path, extractor_type, source='local', weights=weight_path)
+
+    def forward(self, x_input):
+        return list(
+            self.dinov3.get_intermediate_layers(x_input, n=self.extraction_blocks)
+        )
 
 
 class SimpleFPN(nn.Module):
@@ -169,6 +181,7 @@ class FeatureVitModel(ISModel):
         random_split=False,
         extractor_type = 'dinov2_vitb14_reg',
         backbone_weight_path = None,
+        backbone_repo_path = None,
         trained_extractor = False,
         use_intermediate = [11],
         skip_connections=False,
@@ -197,7 +210,13 @@ class FeatureVitModel(ISModel):
         )
 
         if self.extractor_type[:6] == "dinov2":
-            self.feature_extractor = DinoExtractor(extractor_type)
+            self.feature_extractor = DinoV2Extractor(extractor_type)
+        elif self.extractor_type[:6] == "dinov3":
+            self.feature_extractor = DinoV3Extractor(
+                extractor_type=extractor_type,
+                repo_path=backbone_repo_path,
+                weight_path=backbone_weight_path,
+            )
 
         if self.use_conv_stack:
             self.backbone_mix = SimpleModulationStack(**backbone_params)
@@ -261,3 +280,66 @@ class FeatureVitModel(ISModel):
 
         #print("Avg. duration: ", (self.dsum / self.dcount))
         return {'instances': instances, 'instances_aux': None}
+
+
+    def set_image(self, image):
+        """
+        image : A [1xCxHxW] torch float tensor.
+        """
+        # 1. Normalize the image (origin: ISModel)
+        self.image = self.normalization(image) # WILL BE USED BY apply_click
+
+        # 2. Extract the features (origin: FeatureVitModel)
+        self.h, self.w = image.shape[-2], image.shape[-1] # WILL BE USED BY apply_click
+
+        if self.trained_extractor:
+            image_features = self.feature_extractor(self.image)
+        else:
+            with torch.no_grad():
+                image_features = self.feature_extractor(self.image)
+                image_features = [feat.detach() for feat in image_features]
+
+        self.skip_features = image_features # WILL BE USED BY apply_click
+
+
+    def apply_click(self, prev_mask, points):
+        if len(self.use_intermediate) > 1:
+            print("SBE: feature fusion")
+            image_features = torch.cat(self.skip_features,
+                                       dim=2)  # [batch_size, seq_len, embed_dim * len(use_intermediate)]
+            self.image_features = self.fuse(image_features)  # [batch_size, seq_len, embed_dim] # WILL BE USED BY apply_click
+
+
+        h_patch, w_patch = self.backbone_mix.patch_size
+        self.grid_size = self.h // h_patch, self.w // w_patch # WILL BE USED BY apply_click
+
+        # 1. Transform features (origin: ISModel)
+        coord_features = self.get_coord_features(self.image, prev_mask, points)
+        coord_features = self.maps_transform(coord_features)
+
+        # 2. Carry out the rest of SkipClick (origin: FeatureVitModel)
+        coord_features_embedded = self.patch_embed_coords(coord_features)
+        if self.use_conv_stack:
+            backbone_features = self.backbone_mix(self.image_features, coord_features_embedded, self.grid_size)
+        else:  # Use a transformer encoder stack
+            backbone_features = self.backbone_mix(self.image_features, self.h, self.w, coord_features_embedded, self.random_split)
+
+        # Extract 4 stage backbone feature map: 1/4, 1/8, 1/16, 1/32
+        B, N, C = backbone_features.shape
+
+        backbone_features = backbone_features.transpose(-1, -2).view(B, C, self.grid_size[0], self.grid_size[1])
+        if self.skip_connections:
+            assert len(self.skip_features) == 4
+            skip_features = [feat.transpose(-1, -2).view(B, C, self.grid_size[0], self.grid_size[1]) for feat in self.skip_features]
+            multi_scale_features = self.neck(backbone_features, skip_features=skip_features)
+        else:
+            multi_scale_features = self.neck(backbone_features)
+        instances = self.head(multi_scale_features)
+
+        outputs = {'instances': instances, 'instances_aux': None}
+
+        outputs['instances'] = nn.functional.interpolate(outputs['instances'], size=self.image.size()[2:],
+                                                         mode='bilinear', align_corners=True)
+
+
+        return outputs["instances"]

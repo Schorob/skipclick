@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="mmc-user@mmc094.informatik.uni-augsburg.de:6040" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="mmc094-schoerob" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="grossmutter">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="mmc-user@mmc094.informatik.uni-augsburg.de:6040">
+      <paths name="mmc094-schoerob">
         <serverdata>
           <mappings>
             <mapping deploy="/home/mmc-user/Projects/SkipClick" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="mmc094">
+      <paths name="mmc094-schoerob (2)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="seppel">
+      <paths name="mmc094-schoerob (3)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mmc094-schoerob (4)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mmc094-schoerob (5)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mmc094-schoerob2">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
