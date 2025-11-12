@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1193e865-91f6-440e-a4f5-72c6fc0d39dc" name="Changes" comment="Add README.md to master branch." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="cleanup" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Schorob&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Schorob/skipclick&quot;,
+    &quot;accountId&quot;: &quot;09e88d24-2a34-49ae-9708-e34de3a56753&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2oZOMPebDeC3X8NwVWh5LxYy9pv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.evaluate_full_model_CocoStuff.executor&quot;: &quot;Run&quot;,
+    &quot;Python.evaluate_full_model_GrabCut.executor&quot;: &quot;Run&quot;,
+    &quot;Python.evaluate_full_model_SBD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.evaluate_full_model_SHSeg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.evaluate_full_model_dinov3_GrabCut.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gui_demo_qt6.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/schoerob.UNI-AUGSBURG/PycharmProjects/SkipClick/novel_demo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\schoerob.UNI-AUGSBURG\PycharmProjects\SkipClick\novel_demo" />
+      <recent name="C:\Users\schoerob.UNI-AUGSBURG\PycharmProjects\SkipClick\models\iter_mask" />
+      <recent name="C:\Users\schoerob.UNI-AUGSBURG\PycharmProjects\SkipClick" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.gui_demo_qt6">
+    <configuration name="evaluate_full_model_CocoStuff" type="PythonConfigurationType" factoryName="Python">
+      <module name="SkipClick" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/evaluate_model.py" />
+      <option name="PARAMETERS" value="NoBRS --eval-mode=cvpr --gpus=0 --eval-fvit --suppress-zoom  --checkpoint=/data/raid_ssd/schoerob/simple_click/models/model_1112_2022/iter_mask/cocolvis_featurevit_base448_intermediate_plus4_skip/002/checkpoints/last_checkpoint.pth --datasets=CocoStuffSingleVal" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evaluate_full_model_GrabCut" type="PythonConfigurationType" factoryName="Python">
+      <module name="SkipClick" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Remote Python 3.10.12 (sftp://mmc-user@mmc094.informatik.uni-augsburg.de:6040/home/mmc-user/environments/skipclick/bin/python3.10)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list>
+            <mapping local-root="$PROJECT_DIR$" remote-root="/home/mmc-user/Projects/SkipClick" />
+          </list>
+        </option>
+      </PathMappingSettings>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/evaluate_model.py" />
+      <option name="PARAMETERS" value="NoBRS --eval-mode=cvpr --gpus=0 --eval-fvit --suppress-zoom  --checkpoint=/data/raid_ssd/schoerob/simple_click/models/model_1112_2022/iter_mask/cocolvis_featurevit_base448_intermediate_plus4_skip/002/checkpoints/last_checkpoint.pth --datasets=GrabCut" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evaluate_full_model_SBD" type="PythonConfigurationType" factoryName="Python">
+      <module name="SkipClick" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/evaluate_model.py" />
+      <option name="PARAMETERS" value="NoBRS --eval-mode=cvpr --gpus=1 --eval-fvit --suppress-zoom  --checkpoint=/data/raid_ssd/schoerob/simple_click/models/model_1112_2022/iter_mask/cocolvis_featurevit_base448_intermediate_plus4_skip/002/checkpoints/last_checkpoint.pth --datasets=SBD" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evaluate_full_model_SHSeg" type="PythonConfigurationType" factoryName="Python">
+      <module name="SkipClick" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/evaluate_model.py" />
+      <option name="PARAMETERS" value="NoBRS --eval-mode=cvpr --gpus=1 --eval-fvit --suppress-zoom  --checkpoint=/data/raid_ssd/schoerob/simple_click/models/model_1112_2022/iter_mask/cocolvis_featurevit_base448_intermediate_plus4_skip/002/checkpoints/last_checkpoint.pth --datasets=SHSeg" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="evaluate_full_model_dinov3_GrabCut" type="PythonConfigurationType" factoryName="Python">
+      <module name="SkipClick" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Remote Python 3.10.12 (sftp://mmc-user@mmc094.informatik.uni-augsburg.de:6040/home/mmc-user/environments/skipclick/bin/python3.10)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list>
+            <mapping local-root="$PROJECT_DIR$" remote-root="/home/mmc-user/Projects/SkipClick" />
+          </list>
+        </option>
+      </PathMappingSettings>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/evaluate_model.py" />
+      <option name="PARAMETERS" value="NoBRS --eval-mode=cvpr --gpus=0 --eval-fvit --suppress-zoom  --checkpoint=/data/raid_ssd/schoerob/simple_click/models/model_1112_2022/iter_mask/cocolvis_featurevit_dinov3_base448_intermediate_plus4_skip/025/checkpoints/last_checkpoint.pth --datasets=GrabCut" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gui_demo_qt6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SkipClick" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/novel_demo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/novel_demo/gui_demo_qt6.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.evaluate_full_model_CocoStuff" />
+      <item itemvalue="Python.evaluate_full_model_GrabCut" />
+      <item itemvalue="Python.evaluate_full_model_dinov3_GrabCut" />
+      <item itemvalue="Python.evaluate_full_model_SBD" />
+      <item itemvalue="Python.evaluate_full_model_SHSeg" />
+      <item itemvalue="Python.gui_demo_qt6" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.gui_demo_qt6" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
+        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1193e865-91f6-440e-a4f5-72c6fc0d39dc" name="Changes" comment="" />
+      <created>1731073583530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731073583530</updated>
+      <workItem from="1731073586785" duration="5312000" />
+      <workItem from="1731079939295" duration="16000" />
+      <workItem from="1733316887718" duration="23175000" />
+      <workItem from="1733560906110" duration="22000" />
+      <workItem from="1733678434273" duration="1055000" />
+      <workItem from="1733735683409" duration="13000" />
+      <workItem from="1733754741744" duration="1636000" />
+      <workItem from="1733817863585" duration="35000" />
+      <workItem from="1733828125215" duration="283000" />
+      <workItem from="1733835833393" duration="6350000" />
+      <workItem from="1733921398965" duration="4909000" />
+      <workItem from="1733990474063" duration="4489000" />
+      <workItem from="1734087570015" duration="15000" />
+      <workItem from="1734090576425" duration="10000" />
+      <workItem from="1734338362011" duration="92000" />
+      <workItem from="1736343349224" duration="948000" />
+      <workItem from="1737704351603" duration="1697000" />
+      <workItem from="1737988821445" duration="18000" />
+      <workItem from="1740045496242" duration="2059000" />
+      <workItem from="1740047894395" duration="4371000" />
+      <workItem from="1744269149269" duration="3236000" />
+      <workItem from="1762180246328" duration="62000" />
+      <workItem from="1762944964123" duration="2634000" />
+      <workItem from="1762949266386" duration="1447000" />
+    </task>
+    <task id="LOCAL-00001" summary="Currently working; removed superfluous elements.">
+      <option name="closed" value="true" />
+      <created>1731075858327</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731075858327</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Still working; removed superfluous elements.">
+      <option name="closed" value="true" />
+      <created>1731077348477</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731077348477</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Still working; removed superfluous elements.">
+      <option name="closed" value="true" />
+      <created>1733492570640</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733492570640</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Introduce cocostuff.py">
+      <option name="closed" value="true" />
+      <created>1733839352376</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733839352376</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changes to cocostuff (length of dataset). &#10;Remove mm models from config.yml">
+      <option name="closed" value="true" />
+      <created>1740045696943</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740045696943</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes to cocostuff (length of dataset). &#10;Remove mm models from config.yml">
+      <option name="closed" value="true" />
+      <created>1740045937811</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740045937811</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Remove cocostuff.py">
+      <option name="closed" value="true" />
+      <created>1740047257350</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740047257350</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Remove cocostuff.py">
+      <option name="closed" value="true" />
+      <created>1740047762434</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740047762434</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Remove cocostuff.py">
+      <option name="closed" value="true" />
+      <created>1740047956438</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740047956438</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Remove cocostuff in master">
+      <option name="closed" value="true" />
+      <created>1740047981582</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740047981582</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add DINOv3 and interactive demo.">
+      <option name="closed" value="true" />
+      <created>1762949314487</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762949314487</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add README.md to master branch.">
+      <option name="closed" value="true" />
+      <created>1762950369457</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1762950369457</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Currently working; removed superfluous elements." />
+    <MESSAGE value="Still working; removed superfluous elements." />
+    <MESSAGE value="Introduce cocostuff.py" />
+    <MESSAGE value="Changes to cocostuff (length of dataset). &#10;Remove mm models from config.yml" />
+    <MESSAGE value="Remove cocostuff.py" />
+    <MESSAGE value="Remove cocostuff in master" />
+    <MESSAGE value="Add DINOv3 and interactive demo." />
+    <MESSAGE value="Add README.md to master branch." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add README.md to master branch." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/isegm/data/compose.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SkipClick$evaluate_full_model_dinov3_GrabCut.coverage" NAME="evaluate_full_model_dinov3_GrabCut Coverage Results" MODIFIED="1762948621710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SkipClick$evaluate_full_model_CocoStuff.coverage" NAME="evaluate_full_model_CocoStuff Coverage Results" MODIFIED="1733839546983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SkipClick$evaluate_full_model_SHSeg.coverage" NAME="evaluate_full_model_SHSeg Coverage Results" MODIFIED="1744269284131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SkipClick$evaluate_full_model_SBD.coverage" NAME="evaluate_full_model_SBD Coverage Results" MODIFIED="1731077489889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SkipClick$evaluate_full_model_GrabCut.coverage" NAME="evaluate_full_model_GrabCut Coverage Results" MODIFIED="1762948193923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SkipClick$gui_demo_qt6.coverage" NAME="gui_demo_qt6 Coverage Results" MODIFIED="1762949169090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/novel_demo" />
+  </component>
+</project>
