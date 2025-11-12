@@ -94,3 +94,28 @@ The `scripts/evaluation.py` can be run by:
 ``` 
 python3 scripts/evaluate_model.py NoBRS --eval-mode=cvpr --gpus=[GPU-Number] --eval-fvit --suppress-zoom --checkpoint=[/path/to/the/checkpoint.pth] --datasets=[DatasetName]
 ```
+
+## SkipClick with a DINOv3 Backbone 
+We also trained a version of the full SkipClick architecture with a DINOv3-based backbone. When compared to the original DINOv2-based backbone, we obtain the following results: 
+
+| **Configuration**  | **GrabCut NoC@90** | **Berkeley NoC@90** | **SBD NoC@90** | **DAVIS NoC@90** | **HQSeg-44k NoC@90** | **Model File** | **Link to Weights** |
+|--------------------|--------------------|---------------------|----------------|------------------|----------------------|----------------|---------------------| 
+| SkipClick (DINOv2) | 1.44 | 2.45 | 6.18 | 4.94 | 6.00 | [Link](https://github.com/Schorob/skipclick/blob/main/models/iter_mask/featurevit_base448_cocolvis_itermask_intermediate_skip.py) | [Link](https://mediastore.rz.uni-augsburg.de/get/MQjMyFYnZ7/) |
+| SkipClick (DINOv3) | 1.42 | 2.45 | 6.16 | 4.79 | 5.77 | [Link](https://github.com/Schorob/skipclick/blob/master/models/iter_mask/featurevit_dinov3_base448_cocolvis_itermask_intermediate_skip.py) | [Link](https://mediastore.rz.uni-augsburg.de/get/EkSQanPSOL/) |
+
+## GUI Demo 
+The folder `novel_demo` contains a Qt6 based basic GUI for the usage of the SkipClick model with quick responses. 
+Before running it, you will have to make same preparatory steps:  
+ - Install the pip packages`requirements.txt`. (Info: In case your Python3-version does not work, we used Python 3.10.12. )
+ - Install PyQt6 (`pip install PyQt6`)
+ - Change the line which sets the value `DEVICE` to either `cpu` or `cuda:[gpu_num]` where `[gpu_num]`is the number of the GPU you intend to use. 
+ - Change the line which sets the value `CHECKPOINT_PATH` to the path of the model file. By default this path is set to the relative path `weights/full_model_skipclick.pth`. You can download the model file for the full SkipClick model [here](https://mediastore.rz.uni-augsburg.de/get/MQjMyFYnZ7/).
+ - Optional: You can also choose to change the canvas size by modifying the variables `H_CANVAS_MAX` and `W_CANVAS_MAX`.
+
+The GUI demo can then be run as `python3 novel_demo/gui_demo_qt6.py`. 
+
+Afterwards, you can use the GUI in the following way: 
+ - Press the `l` key to load an image. 
+ - Use the left / right mouse button to place a foreground / background click. 
+ - Press the `u` key to undo the last click. 
+ - Press the `s` key to save the current mask (as a `.png` file). 

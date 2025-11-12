@@ -11,7 +11,7 @@ from PIL import Image
 
 
 DEVICE = "cuda:0"
-CHECKPOINT_PATH = "C:\\Users\\schoerob.UNI-AUGSBURG\\Documents\\downloaded_weights\\skipclick_checkpoints\\full_skipclick_model_last_checkpoint.pth"
+CHECKPOINT_PATH = "../weights/full_model_skipclick.pth"
 H_CANVAS_MAX, W_CANVAS_MAX = 720, 1280
 H_WINDOW, W_WINDOW = H_CANVAS_MAX + 80, W_CANVAS_MAX + 80
 
