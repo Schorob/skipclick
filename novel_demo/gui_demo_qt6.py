@@ -5,7 +5,7 @@ from PyQt6.QtCore import Qt
 import numpy as np
 from isegm.inference import utils
 import torch
-import gui_engine
+from novel_demo import gui_engine
 from skimage.draw import disk, circle_perimeter
 from PIL import Image
 
