@@ -105,14 +105,20 @@ We also trained a version of the full SkipClick architecture with a DINOv3-based
 
 ## GUI Demo 
 The folder `novel_demo` contains a Qt6 based basic GUI for the usage of the SkipClick model with quick responses. 
-Before running it, you will have to make same preparatory steps:  
- - Install the pip packages`requirements.txt`. (Info: In case your Python3-version does not work, we used Python 3.10.12. )
+Before running it, you will have to make same preparatory steps: 
+ - Create a virtual environment using `venv`: `python -m venv skipclick_venv` (Note: We used Python 3.10.12)
+ - Activate the environment
+ - Update pip: `python -m pip install --upgrade pip` 
+ - Install the `torch` and `torchvision` packages (see [the official guide](https://pytorch.org/get-started/locally/)). We used `torch==2.9.0`, `torchmetrics==1.8.2` and `torchvision==0.24.0`. 
+ - Install the `wheel` package (prerequisite for `mmcv-full`): `python -m pip install wheel`
+ - Install `mmcv-full`: `python -m pip install mmcv-full` 
+ - Install all other repository requirements from `requirements.txt` in the repository: `python -m pip install -r requirements.txt`
  - Install PyQt6 (`pip install PyQt6`)
  - Change the line which sets the value `DEVICE` to either `cpu` or `cuda:[gpu_num]` where `[gpu_num]`is the number of the GPU you intend to use. 
  - Change the line which sets the value `CHECKPOINT_PATH` to the path of the model file. By default this path is set to the relative path `weights/full_model_skipclick.pth`. You can download the model file for the full SkipClick model [here](https://mediastore.rz.uni-augsburg.de/get/MQjMyFYnZ7/).
  - Optional: You can also choose to change the canvas size by modifying the variables `H_CANVAS_MAX` and `W_CANVAS_MAX`.
 
-The GUI demo can then be run as `python3 novel_demo/gui_demo_qt6.py`. 
+Move to the folder that contains the SkipClick repository. The GUI demo can then be run as `python -m novel_demo.gui_demo_qt6`. 
 
 Afterwards, you can use the GUI in the following way: 
  - Press the `l` key to load an image. 

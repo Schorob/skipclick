@@ -11,7 +11,7 @@ from PIL import Image
 
 
 DEVICE = "cuda:0"
-CHECKPOINT_PATH = "../weights/full_model_skipclick.pth"
+CHECKPOINT_PATH = "weights/full_model_skipclick.pth"
 H_CANVAS_MAX, W_CANVAS_MAX = 720, 1280
 H_WINDOW, W_WINDOW = H_CANVAS_MAX + 80, W_CANVAS_MAX + 80
 
@@ -122,7 +122,7 @@ class GUIDemo(QWidget):
                     self.targeted_h, self.targeted_w = self.scale_up_to_max(self.orig_h, self.orig_w, H_CANVAS_MAX, W_CANVAS_MAX)
                     print("Image loading. Targeted size: ", self.targeted_h, ",", self.targeted_w)
 
-                    img_loaded = img_loaded.resize((self.targeted_w, self.targeted_h), Image.ANTIALIAS)
+                    img_loaded = img_loaded.resize((self.targeted_w, self.targeted_h), Image.LANCZOS)
                     self.numpy_img = np.asarray(img_loaded)
 
                     gui_engine.set_image_demo(self.my_skipclick, self.numpy_img)
@@ -172,7 +172,7 @@ class GUIDemo(QWidget):
                 accumulated_points=self.accumulated_points,
                 accumulated_labels=self.accumulated_labels
             )
-            img_plot = Image.fromarray(img_plot).resize((self.targeted_w, self.targeted_h), Image.ANTIALIAS)
+            img_plot = Image.fromarray(img_plot).resize((self.targeted_w, self.targeted_h), Image.LANCZOS)
             self.draw_np_image(np.asarray(img_plot))
 
     def scale_up_to_max(self, h, w, h_max, w_max):
@@ -205,7 +205,7 @@ class GUIDemo(QWidget):
             accumulated_points=self.accumulated_points,
             accumulated_labels=self.accumulated_labels
         )
-        img_plot = Image.fromarray(img_plot).resize((self.targeted_w, self.targeted_h), Image.ANTIALIAS)
+        img_plot = Image.fromarray(img_plot).resize((self.targeted_w, self.targeted_h), Image.LANCZOS)
         self.draw_np_image(np.asarray(img_plot))
 
 
