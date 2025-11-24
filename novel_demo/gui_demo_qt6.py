@@ -39,6 +39,7 @@ class GUIDemo(QWidget):
 
         # The first image is empty (fully black)
         empty_img = np.zeros((H_CANVAS_MAX, W_CANVAS_MAX, 3), dtype=np.uint8)
+        self.pil_plotted_img = Image.fromarray(empty_img)
         q_empty_img = self.np_to_qimage(empty_img)
         pixmap = QPixmap.fromImage(q_empty_img)
         self.image_item = QGraphicsPixmapItem(pixmap)
@@ -53,7 +54,7 @@ class GUIDemo(QWidget):
         layout.addWidget(self.canvas)
         self.setLayout(layout)
 
-        self.setWindowTitle('GUI Demo for Interactive Segmentation (l: Load Image, s: Save Mask, u: Undo Last Click)')
+        self.setWindowTitle('GUI Demo for Interactive Segmentation (l: Load Image, s: Save Mask, u: Undo Last Click, p: Save Plot)')
         self.setGeometry(50, 50, W_WINDOW, H_WINDOW)
         self.setFocus()
         self.canvas.setFocus()
@@ -72,6 +73,7 @@ class GUIDemo(QWidget):
         if hasattr(self, 'image_item'):
             self.scene.removeItem(self.image_item)
 
+        self.pil_plotted_img = Image.fromarray(np_image)
         q_image = self.np_to_qimage(np_image)
         pixmap = QPixmap.fromImage(q_image)
         self.image_item = QGraphicsPixmapItem(pixmap)
@@ -142,8 +144,6 @@ class GUIDemo(QWidget):
                     print(f"An unexpected error occurred: {e}")  # Catch-all for other errors
 
         if event.text() == "s":  # Check for 's' key press
-
-
             try:
                 filename = QFileDialog.getSaveFileName(self, 'Save Mask', "/", "Images (*.png)")[0]
                 print(filename)
@@ -153,6 +153,22 @@ class GUIDemo(QWidget):
                 mask_to_save = Image.fromarray((mask_to_save.astype(np.uint8)))
                 mask_to_save = mask_to_save.resize((self.orig_w, self.orig_h), Image.NEAREST)
                 mask_to_save.save(filename, format="png")
+            except FileNotFoundError:
+                print("Error: File not found.")  # Specific error handling
+            except OSError as e:
+                print(f"OS error: {e}")  # Error related to image loading
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")  # Catch-all for other errors
+
+        if event.text() == "p":  # Check for 's' key press
+            try:
+                filename = QFileDialog.getSaveFileName(self, 'Save Plot', "/", "Images (*.png)")[0]
+                print(filename)
+
+                print("Saving plotted image " + filename)
+                plot_to_save = self.pil_plotted_img
+                plot_to_save = plot_to_save.resize((self.orig_w, self.orig_h), Image.LANCZOS)
+                plot_to_save.save(filename, format="png")
             except FileNotFoundError:
                 print("Error: File not found.")  # Specific error handling
             except OSError as e:
@@ -224,7 +240,7 @@ class GUIDemo(QWidget):
         plot_factor = 0.5
         img_plot = np.where(
             binarized_mask[..., np.newaxis] == 1,
-            img * plot_factor + (1. - plot_factor) * np.array([1., 0., 0.]),
+            img * plot_factor + (1. - plot_factor) * np.array([0., 0., 1.]),
             img
         )
 
