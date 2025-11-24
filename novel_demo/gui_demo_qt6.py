@@ -142,10 +142,10 @@ class GUIDemo(QWidget):
                     print(f"An unexpected error occurred: {e}")  # Catch-all for other errors
 
         if event.text() == "s":  # Check for 's' key press
-            dialog = QFileDialog(self)
-            dialog.setNameFilter("Images (*.png)")
-            if dialog.exec():
-                filename = dialog.selectedFiles()[0]
+
+
+            try:
+                filename = QFileDialog.getSaveFileName(self, 'Save Mask', "/", "Images (*.png)")[0]
                 print(filename)
 
                 print("Saving image " + filename)
@@ -153,6 +153,12 @@ class GUIDemo(QWidget):
                 mask_to_save = Image.fromarray((mask_to_save.astype(np.uint8)))
                 mask_to_save = mask_to_save.resize((self.orig_w, self.orig_h), Image.NEAREST)
                 mask_to_save.save(filename, format="png")
+            except FileNotFoundError:
+                print("Error: File not found.")  # Specific error handling
+            except OSError as e:
+                print(f"OS error: {e}")  # Error related to image loading
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")  # Catch-all for other errors
 
         if event.text() == "u":
 
